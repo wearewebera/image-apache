@@ -25,8 +25,6 @@ COPY ./misc/apache2.conf "${SERVER_ROOT}/apache2.conf"
 
 COPY ./misc/000-default.conf "${SERVER_ROOT}/sites-enabled/000-default.conf"
 
-COPY ./misc/health.php "${APACHE_HOME}/health.php"
-
 USER www-data
 
 STOPSIGNAL SIGWINCH
