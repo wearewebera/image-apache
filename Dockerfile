@@ -8,7 +8,7 @@ RUN apt-get update \
 
 # Set up the apache environment variables
 ENV APACHE_HOME /var/www/public_html
-ENV APACHE_HEALTH /var/www/public_html/health
+ENV APACHE_HEALTH /var/www/health
 ENV SERVER_ROOT /etc/apache2/
 ENV APACHE_PORT 8080
 ENV APACHE_RUN_USER www-data
