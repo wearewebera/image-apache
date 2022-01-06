@@ -8,7 +8,7 @@ RUN apt-get update \
 
 # Set up the apache environment variables
 ENV APACHE_HOME /var/www/public_html
-ENV APACHE_HEALTH /health
+ENV APACHE_HEALTH /var/www/health
 ENV SERVER_ROOT /etc/apache2/
 ENV APACHE_PORT 8080
 ENV APACHE_RUN_USER www-data
@@ -27,6 +27,8 @@ COPY ./misc/apache2.conf "${SERVER_ROOT}/apache2.conf"
 COPY ./misc/000-default.conf "${SERVER_ROOT}/sites-enabled/000-default.conf"
 
 COPY ./misc/health.html "${APACHE_HEALTH}/index.html"
+
+RUN chown -R www-data:www-data $APACHE_HEALTH
 
 USER www-data
 
