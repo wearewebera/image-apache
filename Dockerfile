@@ -28,6 +28,8 @@ COPY ./misc/health.html "${HEALTH_HOME}/index.html"
 
 COPY ./misc/000-default.conf "${SERVER_ROOT}/sites-enabled/000-default.conf"
 
+COPY ./misc/health.conf "${SERVER_ROOT}/sites-enabled/health.conf"
+
 USER www-data
 
 STOPSIGNAL SIGWINCH
