@@ -1,10 +1,9 @@
-FROM gcr.io/webera/base
+FROM webera/base
 
 RUN apt-get update \
   && apt-get install -y apache2  \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm -rf /var/lib/apt/lists/*
 
 # Set up the apache environment variables
 ENV APACHE_HOME /var/www/public_html
