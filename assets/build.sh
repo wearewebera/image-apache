@@ -17,5 +17,12 @@ chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP $APACHE_RUN_DIR $APACHE_LOCK_DIR $AP
 #
 # Set up Apache customization
 #
-sed -i '/Listen/d' /etc/apache2/ports.conf
 a2enmod rewrite proxy_fcgi
+sed -i '/Listen/d' /etc/apache2/ports.conf
+cp /tmp/assets/apache2.conf "${SERVER_ROOT}/"
+cp /tmp/assets/health.html "${HEALTH_HOME}/index.html"
+cp /tmp/assets/000-default.conf "${SERVER_ROOT}/sites-enabled/"
+cp /tmp/assets/health.conf "${SERVER_ROOT}/sites-enabled/"
+cp /tmp/assets/index.php "${APACHE_HOME}/"
+chown $APACHE_RUN_USER:$APACHE_RUN_GROUP "${APACHE_HOME}/index.php"
+cp /tmp/assets/entrypoint.sh /bin/

@@ -11,15 +11,8 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_RUN_DIR /var/run/
 
-COPY assets/build.sh /bin
-RUN /bin/build.sh && rm /bin/build.sh
-
-COPY ./assets/apache2.conf "${SERVER_ROOT}/"
-COPY ./assets/health.html "${HEALTH_HOME}/index.html"
-COPY ./assets/000-default.conf "${SERVER_ROOT}/sites-enabled/"
-COPY ./assets/health.conf "${SERVER_ROOT}/sites-enabled/"
-COPY --chown=33:33 ./assets/index.php "${APACHE_HOME}/"
-COPY ./assets/entrypoint.sh /bin/
+COPY assets /tmp/assets
+RUN /tmp/assets/build.sh && rm -rf /tmp/assets
 
 USER www-data
 EXPOSE 8080
