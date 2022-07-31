@@ -29,7 +29,7 @@ COPY ./misc/000-default.conf "${SERVER_ROOT}/sites-enabled/000-default.conf"
 
 COPY ./misc/health.conf "${SERVER_ROOT}/sites-enabled/health.conf"
 
-COPY --chown=33:33 ./misc/index.html "${APACHE_HOME}"
+COPY --chown=33:33 ./misc/index.php "${APACHE_HOME}"
 
 COPY ./misc/entrypoint.sh /bin/
 
