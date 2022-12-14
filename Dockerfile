@@ -2,7 +2,7 @@ FROM webera/base
 
 # Set up the apache environment variables
 ENV APACHE_HOME /var/www/public_html
-ENV HEALTH_HOME /var/www/health
+ENV HEALTH_HOME /var/health
 ENV SERVER_ROOT /etc/apache2/
 ENV APACHE_PORT 8080
 ENV APACHE_RUN_USER www-data

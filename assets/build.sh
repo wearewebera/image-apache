@@ -12,7 +12,7 @@ rm -rf /var/lib/apt/lists/*
 # Set up directories and permissions
 #
 mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR $APACHE_HOME $HEALTH_HOME
-chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_HOME $APACHE_LOG_DIR
+chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_HOME $APACHE_LOG_DIR $HEALTH_HOME
 
 #
 # Set up Apache customization
@@ -23,6 +23,5 @@ cp /tmp/assets/apache2.conf "${SERVER_ROOT}/"
 cp /tmp/assets/health.html "${HEALTH_HOME}/index.html"
 cp /tmp/assets/000-default.conf "${SERVER_ROOT}/sites-enabled/"
 cp /tmp/assets/health.conf "${SERVER_ROOT}/sites-enabled/"
-cp /tmp/assets/index.php "${APACHE_HOME}/"
-chown $APACHE_RUN_USER:$APACHE_RUN_GROUP "${APACHE_HOME}/index.php"
+chown $APACHE_RUN_USER:$APACHE_RUN_GROUP "$HEALTH_HOME/index.html"
 cp /tmp/assets/entrypoint.sh /bin/
